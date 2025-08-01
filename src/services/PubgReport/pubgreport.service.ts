@@ -4,12 +4,9 @@ import { TPlayer, TStream } from "./types";
 
 export class PubgReportService {
 
-       async getPlayerClips(playerName: string, playerId: string): Promise<string[]> {
+       async getPlayerClips(playerName: string, playerId: string): Promise<string> {
               try {
-
                      const playerClips = await axios.get<TStream>(`/v1/players/${playerId}/streams`);
-
-
                      return PubgReportUtility.convertStreamObjectToString(playerName, playerClips.data)
               } catch (e: any) {
                      console.log(`Error: Get Player Clips:`, e);
