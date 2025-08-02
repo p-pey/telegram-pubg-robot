@@ -1,6 +1,6 @@
 
 import { TBot } from "../core";
-import { PubgReportCommand } from "./PubgReport.command";
+import { PubgReportCommand } from "./PubgReport/PubgReport.command";
 
 export interface ICommand {
        register:()=> void;

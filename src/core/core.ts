@@ -11,7 +11,7 @@ class Main {
        }
        private InitiateRobot() {
               dotenv.config();
-              import('../services/Axios/Axios')
+
               const TELEGRAM_TOKEN = process.env.TELEGRAM_TOKEN!;
               this._robot = new TelegramBot(TELEGRAM_TOKEN, { polling: true });
 
