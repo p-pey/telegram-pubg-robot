@@ -1,5 +1,5 @@
 import dedent from "dedent";
-import { icons } from "../../tools/constants/constants";
+import { icons, WEAPONS } from "../../tools/constants/constants";
 import { TStream, TStreamCase } from "./types";
 
 
@@ -25,8 +25,8 @@ export class PubgReportMapper {
                 streamReport += dedent`${isDeadByStreamer ? icons.death : icons.win} ${streamerName}\n`
                 streamReport += dedent`${icons.lightning} ${attacher} ${(isTeammatePOV && !isDeadByStreamer) ? "'s Teammate" : ''} in mode ${mode} ${keyword} ${victim}${(isTeammatePOV && isDeadByStreamer) ? "'s Teammate" : ""}\n`
 
-                if (report.DamageCauser) streamReport += dedent(icons.knife + " " + report.DamageCauser + '\n');
-                streamReport += dedent(`\n<a href='${process.env.PUBG_REPORT_WEBSITE_BASE_URL}/${key}/${attackId}'> Watch </a>`)
+                if (report.DamageCauser) streamReport += dedent`${icons.knife} ${WEAPONS[report.DamageCauser] ?? report.DamageCauser}`
+                streamReport += dedent`\n<a href='${process.env.PUBG_REPORT_WEBSITE_BASE_URL}/${key}/${attackId}'> Watch </a>`
 
                 streamerReportLinks.push(streamReport);
             })

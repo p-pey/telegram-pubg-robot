@@ -21,6 +21,7 @@ class Main {
                      console.log("********************* STARTED ***************************")
                      const BotCommands = new Commands(this._robot);
                      BotCommands.registerCommands();
+
               } catch (e: any) {
                      setInterval(() => {
                             this.InitiateRobot();

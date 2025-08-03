@@ -1,6 +1,6 @@
 import { InlineKeyboardButton } from "node-telegram-bot-api";
-import { TPlayer, TStreamerOptionTemplate } from "../../../services/PubgReport/types";
-import { icons, TEMPLATE_DIVIDER } from "../../../tools/constants/constants";
+import { TPlayer, TStreamerOptionTemplate, TWeapon } from "../../../services/PubgReport/types";
+import { icons, TEMPLATE_DIVIDER, WEAPONS } from "../../../tools/constants/constants";
 
 
 
@@ -68,8 +68,8 @@ export class PubgReportUtility {
        static getFamiliarMapName() {
 
        }
-       static getFamiliarGunName() {
-
+       static getFamiliarGunName(weapon: TWeapon) {
+              return WEAPONS[weapon] ?? weapon
        }
        static calculateResponseChunk(clips: string) {
               const clipsArray = clips.split('\n');
@@ -84,9 +84,5 @@ export class PubgReportUtility {
               }
               return responseChunk
        }
-       static getStreamerOptionNumber(optionName: `${number}: ${string} - ${string}`) {
-              const splited = optionName.split('-');
 
-              console.log(splited);
-       }
 }
